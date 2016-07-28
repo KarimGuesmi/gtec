@@ -3,36 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <title>Ma page web</title>
-    <style>[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
-        display: none !important;
-    }</style>
+    <link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body{
+            margin-top: 50px;
+        }
+    </style>
 </head>
-
-<!-- <body ng-cloak> "solution 1" -->
-
-    <body>
-    <div ng-controller="gCtrl as vm1">
-       <h1 ng-bind="vm1.name"></h1>
-       <h1 ng-bind="vm1.prenoun"></h1>
-
-       <input ng-model="vm1.name"> <br/><br/>
-       <input ng-model="vm1.prenoun"> <br/><br/>
-
-        <h1>{{vm1.list}}</h1>
+<body>
+    <div ng-include="'app/nav/nav.html'"></div>
+    <div class="container" ng-view></div>
 
 
-        <ul>
-            <li ng-repeat="l in vm1.list | orderBy:'name' | filter:vm1.name">  <!-- j ai change le des elemnts on ordre qqonque ds app.js //// et pour le filter c est lorsque je saisie un element du tab ac le mem nom => donc il filtre elimine les autres et garde seulement celui ac le mem nom qu j'ai saisi-->
-                {{l.name}}
-            </li>
-        </ul>
 
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/angular-route/angular-route.js"></script>
 
-    </div>
+     <script src="app/app.js"></script>
+    <script src="app/app.config.js"></script>
 
-<h1></h1>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
-    <script src="app/app.js"></script>
+    <script src="app/home/home.controller.js"></script>
+    <script src="app/about/about.controller.js"></script>
 
 </body>
 </html>
