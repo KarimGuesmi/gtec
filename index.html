@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="gtec"> <!-- dire qu'on va utiliser le module gtec qu on a declare ligne 1 app.js-->
+<html lang="en"> <!-- dire qu'on va utiliser le module gtec qu on a declare ligne 1 app.js-->
 <head>
     <meta charset="UTF-8">
     <title>Ma page web</title>
@@ -15,15 +15,17 @@
     <div class="container" ng-view></div>
 
 
-
     <script src="bower_components/angular/angular.js"></script>
     <script src="bower_components/angular-route/angular-route.js"></script>
 
-     <script src="app/app.js"></script>
+    <script src="app/app.js"></script>
     <script src="app/app.config.js"></script>
+    <script src="app/shared/services/app.service.js"></script>
+    <script src="app/shared/services/app1.service.js"></script>
 
     <script src="app/home/home.controller.js"></script>
     <script src="app/about/about.controller.js"></script>
+
 
 </body>
 </html>
