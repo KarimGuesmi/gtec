@@ -10,22 +10,29 @@
         }
     </style>
 </head>
-<body>
-    <div ng-include="'app/nav/nav.html'"></div>
-    <div class="container" ng-view></div>
+<body ng-cloak ng-controller="appCtrl as $ctrl">
 
+    <gtec-nav-cmp project-name="$ctrl.name"></gtec-nav-cmp>
+
+    <input ng-model="$ctrl.name">
+
+    <div class="container" ng-view></div>
 
     <script src="bower_components/angular/angular.js"></script>
     <script src="bower_components/angular-route/angular-route.js"></script>
 
     <script src="app/app.js"></script>
     <script src="app/app.config.js"></script>
+    <script src="app/app.controller.js"></script>
+
+
     <script src="app/shared/services/app.service.js"></script>
     <script src="app/shared/services/app1.service.js"></script>
 
     <script src="app/home/home.controller.js"></script>
     <script src="app/about/about.controller.js"></script>
-
+    <script src="app/nav/nav.directive.js"></script>
+    <script src="app/nav/nav.component.js"></script>
 
 </body>
 </html>
