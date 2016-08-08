@@ -1,16 +1,26 @@
-
 <h1>home</h1>
-<h1>{{vm.name}} </h1>
-<h1>{{vm.list}} </h1>
+
+<pre>{{vm.quotes}}</pre>
+
+<br><br>
+<input ng-model="vm.quote.author"/>
+<input ng-model="vm.quote.text"/>
+<button ng-click="vm.add()">Add</button><br><br>
+
+
+<br><br>
 
 <table class="table table-striped">
     <tr>
-        <th>id</th>
-        <th>name</th>
-
+        <th>AUTHOR</th>
+        <th>TEXT</th>
+        <th>ACTION</th>
+        <th><button ng-click="vm.getID($index)">ID</button></th>
     </tr>
-    <tr ng-repeat="item in vm.list">
+    <tr ng-repeat="item in vm.quotes">
+        <td>{{item.author}}</td>
+        <td>{{item.text}}</td>
+        <td><button ng-click="vm.getID($index)">delete</button></td>
         <td>{{item.id}}</td>
-        <td>{{item.name}}</td>
     </tr>
 </table>

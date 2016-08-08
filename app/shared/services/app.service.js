@@ -5,23 +5,54 @@
 (function () {
 
     function AppService($http, $q){
-        return  { getAll : getAll };
+        return  {
+            getAll : getAll,
+            getQuote : getQuote,
+            addQuote : addQuote,
+            deleteQuote : deleteQuote
+        };
 
         function getAll(){
-            //return [1,2,3,4]; ou
-            /*
-            return [{id:1, name:'name1'},
-                    {id:2, name:'name2'}];
-            */
-
             var d = $q.defer();
-
             $http.get('app/shared/data/data.json').then(function(response){
-                //return response;
                 d.resolve(response.data);
             });
             return d.promise;
-       }
+        }
+
+        function getQuote(){
+            var d = $q.defer();
+            $http.get('http://localhost:3412/').then(function(response){
+                d.resolve(response.data);
+            });
+            return d.promise;
+        }
+
+        function addQuote(data){
+            var d = $q.defer();
+            $http.post('http://localhost:3412/quote', data).then(function(response){
+                d.resolve(response.data);
+            });
+            return d.promise;
+        }
+
+        function deleteQuote(id){
+            var d = $q.defer();
+            $http.delete('http://localhost:3412/quote/'+id).then(function(response){
+                d.resolve(response.data);
+            });
+            return d.promise;
+        }
+
+        function getTheID(id){
+            var d = $q.defer();
+            $http.getID('http://localhost:3412/quote/'+id).then(function(response){
+                d.resolve(response.data);
+            });
+            return d.promise;
+        }
+
+
     }
 
     AppService.$inject = ['$http','$q'];
